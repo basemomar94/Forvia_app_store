@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Room
 import com.bassem.forvia_app_store.data.local.AppDataBase
 import com.bassem.forvia_app_store.data.local.AppsDao
-import com.bassem.forvia_app_store.data.local.DatabaseConstants.DATABASE_NAME
+import com.bassem.forvia_app_store.data.utils.DatabaseConstants.DATABASE_NAME
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
