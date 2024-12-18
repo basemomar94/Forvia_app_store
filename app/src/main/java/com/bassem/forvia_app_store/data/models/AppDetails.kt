@@ -1,7 +1,5 @@
 package com.bassem.forvia_app_store.data.models
 
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 
 data class AppDetails(
     val added: String,

@@ -1,4 +1,4 @@
-package com.bassem.forvia_app_store.presentation.fragments
+package com.bassem.forvia_app_store.presentation.fragments.home
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
