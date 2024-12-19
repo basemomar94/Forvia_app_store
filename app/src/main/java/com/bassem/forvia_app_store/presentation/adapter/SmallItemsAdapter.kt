@@ -3,7 +3,6 @@ package com.bassem.forvia_app_store.presentation.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bassem.forvia_app_store.data.models.AppDetails
 import com.bassem.forvia_app_store.databinding.ItemSmallAppBinding
 import com.bassem.forvia_app_store.presentation.models.AppsUi
 import com.bumptech.glide.Glide
