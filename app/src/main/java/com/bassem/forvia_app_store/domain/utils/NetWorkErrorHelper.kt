@@ -5,7 +5,7 @@ import com.google.gson.JsonParseException
 import java.io.IOException
 import java.sql.SQLException
 
-fun getExceptionMessage(e: Exception) = when (e) {
+fun getExceptionMessage(e: Throwable) = when (e) {
     is IOException -> ErrorTypes.IoException
     is SQLException -> ErrorTypes.SqlException
     is JsonParseException -> ErrorTypes.JsonException

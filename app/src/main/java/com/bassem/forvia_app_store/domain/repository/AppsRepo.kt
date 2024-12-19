@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface AppsRepo {
 
-   suspend fun getProperties(): Flow<ApiResult<Any?>>
+   suspend fun getApps(): Flow<ApiResult<Any?>>
 }
