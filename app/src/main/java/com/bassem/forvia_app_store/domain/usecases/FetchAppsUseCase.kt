@@ -1,7 +1,6 @@
 package com.bassem.forvia_app_store.domain.usecases
 
 import com.bassem.forvia_app_store.data.models.ApiResult
-import com.bassem.forvia_app_store.data.models.AppDetails
 import com.bassem.forvia_app_store.data.models.AppsResult
 import com.bassem.forvia_app_store.domain.repository.AppsRepo
 import com.bassem.forvia_app_store.presentation.mapers.AppDtoToUiModelMapper

@@ -6,15 +6,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.bassem.forvia_app_store.data.models.ApiResult
+import com.bassem.forvia_app_store.data.models.Responses
 import com.bassem.forvia_app_store.databinding.FragmentHomeBinding
+import com.bassem.forvia_app_store.presentation.adapter.OnItemClickListener
+import com.bassem.forvia_app_store.presentation.adapter.SmallItemsAdapter
 import com.bassem.forvia_app_store.presentation.base.BaseFragment
+import com.bassem.forvia_app_store.presentation.models.AppsUi
 import com.bassem.forvia_app_store.presentation.viewmodels.HomeViewModel
 import com.bassem.forvia_app_store.utils.Logger
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class HomeFragment : BaseFragment<FragmentHomeBinding>() {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnItemClickListener {
     private val log = Logger("HomeFragment")
     private val viewModel: HomeViewModel by viewModels()
 
@@ -32,9 +39,41 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
 
     private fun collectApps() = lifecycleScope.launch {
-        viewModel.appsList.collect {
-            log.i("got apps $it")
+        viewModel.appsList.collect { apps ->
+
+            when (apps) {
+                is ApiResult.Success -> {
+                    populateLocalApps(apps.data as List<AppsUi>)
+                }
+
+                is ApiResult.Fail -> {
+
+                }
+
+                is ApiResult.Loading -> {
+
+                }
+
+                null -> {
+
+                }
+            }
+        }
+    }
+
+    private fun populateLocalApps(list: List<AppsUi>) {
+        val adapter = SmallItemsAdapter(list, this)
+        withBinding {
+            localTopAppsRv.adapter = adapter
+            localTopAppsRv.layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+
+            localTopAppsRv.setHasFixedSize(true)
 
         }
+    }
+
+    override fun onItemClick(item: AppsUi) {
+
     }
 }
