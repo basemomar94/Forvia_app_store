@@ -6,20 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bassem.forvia_app_store.R
 import com.bassem.forvia_app_store.data.models.ApiResult
-import com.bassem.forvia_app_store.data.models.Responses
 import com.bassem.forvia_app_store.databinding.FragmentHomeBinding
 import com.bassem.forvia_app_store.presentation.adapter.EditorChoiceAdapter
 import com.bassem.forvia_app_store.presentation.adapter.OnItemClickListener
 import com.bassem.forvia_app_store.presentation.adapter.SmallItemsAdapter
 import com.bassem.forvia_app_store.presentation.base.BaseFragment
 import com.bassem.forvia_app_store.presentation.models.AppsUi
+import com.bassem.forvia_app_store.presentation.utils.Constants.APP_DETAILS
 import com.bassem.forvia_app_store.presentation.viewmodels.HomeViewModel
 import com.bassem.forvia_app_store.utils.Logger
 import com.google.android.material.carousel.CarouselLayoutManager
-import com.google.android.material.carousel.CarouselStrategy
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
@@ -86,7 +86,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnItemClickListener {
         withBinding {
             editorsChoiceRv.adapter = adapter
             editorsChoiceRv.layoutManager =
-             carouselLayoutManager
+                carouselLayoutManager
 
             localTopAppsRv.setHasFixedSize(true)
 
@@ -94,6 +94,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnItemClickListener {
     }
 
     override fun onItemClick(item: AppsUi) {
-
+        val bundle = Bundle().apply {
+            putParcelable(APP_DETAILS, item)
+        }
+        findNavController().navigate(R.id.action_homeFragment_to_detailsFragment, bundle)
     }
 }

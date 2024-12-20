@@ -1,5 +1,9 @@
 package com.bassem.forvia_app_store.presentation.models
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class AppsUi(
     val downloads: Int,
     val iconUrl: String,
@@ -10,6 +14,5 @@ data class AppsUi(
     val versionName: String,
     val size: Int,
     val storeName: String,
-    val rating: Double
-
-)
+    val rating: Double,
+) : Parcelable
