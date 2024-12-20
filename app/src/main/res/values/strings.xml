@@ -3,4 +3,39 @@
     <string name="apps">Apps</string>
     <string name="editors_choice">Editors choice</string>
     <string name="local_top_apps">Local top apps</string>
+    <string name="default_notification_channel_id">chanel_1</string>
+    <string name="default_notification_channel_name">marketing_channel</string>
+    <string name="news_app_alert">New apps Alert</string>
+    <string name="notification_title">🌟 Discover New Worlds!</string>
+    <string name="notification_text">Explore the latest apps that fit your style.</string>
+
+    <string name="notification_title1">Your Next Adventure Awaits! 🚀</string>
+    <string name="notification_text1">Find your perfect match in the app store today.</string>
+
+    <string name="notification_title2">🔥 Hot Picks for You!</string>
+    <string name="notification_text2">Check out our trending apps - you don\'t want to miss this!</string>
+
+    <string name="notification_title3">📣 Be the First to Know!</string>
+    <string name="notification_text3">New apps have arrived just for you. Explore now!</string>
+
+    <string name="notification_title4">✨ Level Up Your Day!</string>
+    <string name="notification_text4">Discover apps that make life simpler and more fun.</string>
+
+    <string name="notification_title5">Unleash New Possibilities 💡</string>
+    <string name="notification_text5">Start using cutting-edge apps that redefine cool.</string>
+
+    <string name="notification_title6">📱 Your Next Favorite is Here!</string>
+    <string name="notification_text6">Explore apps tailored to your interests now.</string>
+
+    <string name="notification_title7">Smarter Apps, Smarter You 🌟</string>
+    <string name="notification_text7">Upgrade your routine with these must-try apps.</string>
+
+    <string name="notification_title8">Don\'t Miss Out! ⚡</string>
+    <string name="notification_text8">New apps are waiting for you. Dive in today!</string>
+
+    <string name="notification_title9">🧩 Unlock New Fun!</string>
+    <string name="notification_text9">Discover apps that spark joy and creativity.</string>
+
+    <string name="notification_title10">🌍 Explore More!</string>
+    <string name="notification_text10">Connect to a world of exciting apps now.</string>
 </resources>
