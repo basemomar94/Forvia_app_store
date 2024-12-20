@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bassem.forvia_app_store.databinding.ItemSmallAppBinding
 import com.bassem.forvia_app_store.presentation.models.AppsUi
+import com.bassem.forvia_app_store.presentation.utils.loadImage
 import com.bumptech.glide.Glide
 
 class SmallItemsAdapter(
@@ -15,7 +16,7 @@ class SmallItemsAdapter(
     inner class SmallItemViewHolder(private val binding: ItemSmallAppBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(app: AppsUi) {
-            Glide.with(binding.appThumbnail.context).load(app.iconUrl).into(binding.appThumbnail)
+            binding.appThumbnail.loadImage(app.iconUrl)
             binding.appNameText.text = app.name
             binding.appRatingBar.rating = app.rating.toFloat()
 

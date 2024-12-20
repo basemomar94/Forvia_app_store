@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bassem.forvia_app_store.databinding.ItemLargeAppBinding
 import com.bassem.forvia_app_store.presentation.models.AppsUi
+import com.bassem.forvia_app_store.presentation.utils.loadImage
 import com.bumptech.glide.Glide
 
 class EditorChoiceAdapter(
@@ -15,9 +16,8 @@ class EditorChoiceAdapter(
     inner class LargeItemViewHolder(private val binding: ItemLargeAppBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(app: AppsUi) {
-            Glide.with(binding.largeAppImage.context).load(app.iconUrl).into(binding.largeAppImage)
+            binding.largeAppImage.loadImage(app.iconUrl)
             binding.largeAppName.text = app.name
-
             binding.root.setOnClickListener { onItemClick.onItemClick(app) }
         }
     }
