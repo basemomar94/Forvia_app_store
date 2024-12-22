@@ -52,6 +52,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnItemClickListener {
             when (result) {
                 is ApiResult.Success -> {
                     withBinding {
+                        errorMessage.gone()
                         progressBar.gone()
                     }
                     val appsList = result.data as List<AppsUi>
@@ -71,6 +72,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnItemClickListener {
 
                 is ApiResult.Loading -> {
                     withBinding {
+                        errorMessage.gone()
                         progressBar.visible()
                     }
                 }
