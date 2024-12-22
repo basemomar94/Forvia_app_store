@@ -4,13 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
+import com.bassem.forvia_app_store.R
 import com.bassem.forvia_app_store.databinding.FragmentDetailsBinding
 import com.bassem.forvia_app_store.presentation.base.BaseFragment
 import com.bassem.forvia_app_store.presentation.models.AppsUi
 import com.bassem.forvia_app_store.presentation.utils.Constants.APP_DETAILS
 import com.bassem.forvia_app_store.presentation.utils.loadImage
 
-class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
+class DetailsFragment : BaseFragment<FragmentDetailsBinding>(), View.OnClickListener {
     override fun inflateViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -20,6 +22,9 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding?.downloadButton?.setOnClickListener(this)
+
         val appData: AppsUi? = requireArguments().getParcelable(APP_DETAILS)
         if (appData != null) {
             updateUi(appData)
@@ -36,5 +41,19 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>() {
             }
         }
 
+    }
+
+    override fun onClick(view: View?) {
+        when (view) {
+            binding?.downloadButton -> {
+                AlertDialog.Builder(requireContext())
+                    .setTitle("Download functionality isn't available in demo version.")
+                    .setIcon(R.drawable.baseline_error_24)
+                    .setPositiveButton("OK") { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    .show()
+            }
+        }
     }
 }
