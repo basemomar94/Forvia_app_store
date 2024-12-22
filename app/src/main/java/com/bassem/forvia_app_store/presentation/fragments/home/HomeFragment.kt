@@ -27,7 +27,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnItemClickListener {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnItemClickListener,
+    View.OnClickListener {
     private val log = Logger("HomeFragment")
     private val viewModel: HomeViewModel by viewModels()
 
@@ -40,6 +41,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding?.retryButton?.setOnClickListener(this)
 
         collectApps()
     }
@@ -54,6 +57,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnItemClickListener {
                     withBinding {
                         errorMessage.gone()
                         progressBar.gone()
+                        retryButton.gone()
                     }
                     val appsList = state.apps
                     populateLocalApps(appsList)
@@ -64,6 +68,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnItemClickListener {
                     withBinding {
                         progressBar.gone()
                         errorMessage.visible()
+                        retryButton.visible()
                         errorMessage.text =
                             requireContext().getErrorMessage(state.types)
                     }
@@ -73,6 +78,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnItemClickListener {
                 is AppsScreenState.Loading -> {
                     withBinding {
                         errorMessage.gone()
+                        retryButton.gone()
                         progressBar.visible()
                     }
                 }
@@ -85,7 +91,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnItemClickListener {
         withBinding {
             localTopAppsTitle.visible()
             localTopAppsRv.adapter = adapter
-            val gridLayoutManager = GridLayoutManager(requireContext(), 2, GridLayoutManager.HORIZONTAL, false)
+            val gridLayoutManager =
+                GridLayoutManager(requireContext(), 2, GridLayoutManager.HORIZONTAL, false)
             localTopAppsRv.layoutManager = gridLayoutManager
             localTopAppsRv.setHasFixedSize(true)
 
@@ -113,5 +120,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnItemClickListener {
             putParcelable(APP_DETAILS, item)
         }
         findNavController().navigate(R.id.action_homeFragment_to_detailsFragment, bundle)
+    }
+
+    override fun onClick(view: View?) {
+        when (view) {
+            binding?.retryButton -> retryFetching()
+        }
+    }
+
+    private fun retryFetching() = lifecycleScope.launch {
+        viewModel.fetchApps()
     }
 }

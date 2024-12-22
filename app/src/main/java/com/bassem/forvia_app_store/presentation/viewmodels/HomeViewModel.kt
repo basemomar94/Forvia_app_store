@@ -25,7 +25,7 @@ class HomeViewModel @Inject constructor(private val fetchAppsUseCase: FetchAppsU
     }
 
 
-    private fun fetchApps() = viewModelScope.launch {
+     fun fetchApps() = viewModelScope.launch {
         fetchAppsUseCase().collect { state ->
             _appsScreenState.value = when (state) {
                 is ApiResult.Fail -> AppsScreenState.Error(state.errorTypes)

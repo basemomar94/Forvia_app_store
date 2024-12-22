@@ -1,73 +1,91 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
 
     <TextView
-        android:visibility="gone"
         android:id="@+id/editors_choice_title"
-        android:text="@string/editors_choice"
         style="@style/label_text"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="@dimen/default_fields_space"
+        android:text="@string/editors_choice"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="@dimen/default_fields_space" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        tools:listitem="@layout/item_large_app"
         android:id="@+id/editors_choice_rv"
         android:layout_width="0dp"
         android:layout_height="@dimen/item_height_large"
-        app:layout_constraintTop_toBottomOf="@id/editors_choice_title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="@dimen/default_fields_space"
         android:clipToPadding="false"
-        android:layout_margin="@dimen/default_fields_space" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editors_choice_title"
+        tools:listitem="@layout/item_large_app" />
 
     <TextView
-        android:visibility="gone"
         android:id="@+id/local_top_apps_title"
-        android:text="@string/local_top_apps"
         style="@style/label_text"
-        app:layout_constraintTop_toBottomOf="@id/editors_choice_rv"
+        android:layout_margin="@dimen/default_fields_space"
+        android:text="@string/local_top_apps"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="@dimen/default_fields_space" />
+        app:layout_constraintTop_toBottomOf="@id/editors_choice_rv" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/local_top_apps_rv"
-        tools:itemCount="20"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="8dp"
         android:clipToPadding="false"
         android:orientation="horizontal"
-        app:spanCount="2"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/local_top_apps_title"
+        app:spanCount="2"
+        tools:itemCount="20"
         tools:listitem="@layout/item_small_app" />
 
     <ProgressBar
-        android:visibility="visible"
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
         android:layout_width="@dimen/icon_size_xxlarge"
         android:layout_height="@dimen/icon_size_xxlarge"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:visibility="gone"
         android:id="@+id/error_message"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/icon_size_xxlarge"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        app:layout_constraintTop_toBottomOf="@id/error_message"
+        android:layout_marginTop="@dimen/default_fields_space"
+        android:id="@+id/retry_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:cornerRadius="@dimen/radius"
+        app:icon="@drawable/baseline_refresh_24"
+        app:iconGravity="textStart"
+        app:iconSize="@dimen/icon_size"
+        app:iconTint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="683dp" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
