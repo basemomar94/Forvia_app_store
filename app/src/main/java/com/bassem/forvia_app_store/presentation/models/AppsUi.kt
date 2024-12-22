@@ -12,7 +12,7 @@ data class AppsUi(
     val name: String,
     val versionCode: Int,
     val versionName: String,
-    val size: Int,
+    val size: Long,
     val storeName: String,
     val rating: Double,
 ) : Parcelable

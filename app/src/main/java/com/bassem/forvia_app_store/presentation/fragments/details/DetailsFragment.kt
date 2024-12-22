@@ -37,7 +37,7 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(), View.OnClickList
         with(appsUi) {
             withBinding {
                 appNameText.text = name
-                ratingText.text = rating.toFloat().toString()
+                ratingText.text = "$rating"
                 appThumbnail.loadImage(iconUrl)
                 versionValue.text = "$versionCode"
                 storeValue.text = storeName
