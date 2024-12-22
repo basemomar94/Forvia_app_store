@@ -26,11 +26,9 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(), View.OnClickList
 
         binding?.downloadButton?.setOnClickListener(this)
 
-        val appData: AppsUi? = requireArguments().getParcelable(APP_DETAILS)
-        if (appData != null) {
+        requireArguments().getParcelable<AppsUi>(APP_DETAILS)?.let { appData ->
             updateUi(appData)
         }
-
     }
 
     private fun updateUi(appsUi: AppsUi) {
@@ -52,9 +50,9 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(), View.OnClickList
         when (view) {
             binding?.downloadButton -> {
                 AlertDialog.Builder(requireContext())
-                    .setTitle("Download functionality isn't available in demo version.")
+                    .setTitle(R.string.download_unavailable)
                     .setIcon(R.drawable.baseline_error_24)
-                    .setPositiveButton("OK") { dialog, _ ->
+                    .setPositiveButton(R.string.ok) { dialog, _ ->
                         dialog.dismiss()
                     }
                     .show()

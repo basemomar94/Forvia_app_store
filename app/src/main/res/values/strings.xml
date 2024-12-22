@@ -50,4 +50,6 @@
     <string name="store">Store:</string>
     <string name="download">Download</string>
     <string name="app_thumbnail">app thumbnail</string>
+    <string name="download_unavailable">Download functionality isn\'t available in demo version.</string>
+    <string name="ok">OK</string>
 </resources>
