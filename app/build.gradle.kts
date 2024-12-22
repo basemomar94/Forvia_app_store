@@ -43,6 +43,9 @@ android {
         resources.excludes += "/META-INF/AL2.0"
         resources.excludes += "/META-INF/LGPL2.1"
     }
+    tasks.withType<Test> {
+        useJUnitPlatform()
+    }
 
 }
 
@@ -82,4 +85,9 @@ dependencies {
     androidTestImplementation (libs.mockk.android)
     testImplementation (libs.turbine)
     androidTestImplementation(libs.kotlinx.coroutines.test)
+    implementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.junit.jupiter.params)
+    testImplementation(libs.androidx.core.testing.v210)
+
+
 }
