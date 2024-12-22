@@ -5,16 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_marginTop="@dimen/default_fields_space"
-    android:layout_marginEnd="@dimen/default_fields_space">
+    android:padding="16dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="2dp"
-        android:layout_marginEnd="8dp"
-        app:cardCornerRadius="8dp"
+        android:layout_margin="4dp"
+        app:cardCornerRadius="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,84 +21,165 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/card_content_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/vertical_guideline_start"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.05" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/vertical_guideline_end"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.95" />
+            android:layout_height="match_parent"
+            android:padding="8dp">
 
             <ImageView
                 android:id="@+id/app_thumbnail"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/item_height_x"
+                android:layout_height="200dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                style="@style/label_text"
                 android:id="@+id/app_name_text"
-                android:layout_marginTop="@dimen/default_fields_space"
-                android:text="App Name"
-                android:textSize="@dimen/large_text_size"
-                app:layout_constraintEnd_toStartOf="@+id/vertical_guideline_end"
-                app:layout_constraintStart_toStartOf="@+id/vertical_guideline_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/app_thumbnail" />
 
             <ImageView
-                android:layout_marginTop="@dimen/default_fields_space"
                 android:id="@+id/rating_icon"
-                android:layout_width="@dimen/icon_size_xlarge"
-                android:layout_height="@dimen/icon_size_xlarge"
-                android:contentDescription="Rating Icon"
-                app:layout_constraintStart_toStartOf="@id/vertical_guideline_start"
-                app:layout_constraintTop_toBottomOf="@+id/app_name_text" />
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/app_name_text" />
 
             <TextView
                 android:id="@+id/rating_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="5.5"
-                android:textSize="@dimen/text_size_medium"
+                android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@id/rating_icon"
-                app:layout_constraintTop_toTopOf="@id/rating_icon"
-                app:layout_constraintBottom_toBottomOf="@id/rating_icon" />
+                app:layout_constraintTop_toTopOf="@id/rating_icon" />
 
-            <!-- Description -->
             <TextView
-                android:layout_marginTop="@dimen/default_fields_space"
+                android:id="@+id/version_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Version:"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rating_icon" />
+
+            <TextView
+                android:id="@+id/version_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@id/version_label"
+                app:layout_constraintTop_toTopOf="@id/version_label" />
+
+            <TextView
+                android:id="@+id/store_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Store:"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/version_label" />
+
+            <TextView
+                android:id="@+id/store_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@id/store_label"
+                app:layout_constraintTop_toTopOf="@id/store_label" />
+
+            <TextView
+                android:id="@+id/downloads_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Downloads:"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/store_label" />
+
+            <TextView
+                android:id="@+id/downloads_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@id/downloads_label"
+                app:layout_constraintTop_toTopOf="@id/downloads_label" />
+
+            <TextView
+                android:id="@+id/app_size_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Size:"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/downloads_label" />
+
+            <TextView
+                android:id="@+id/app_size_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@id/app_size_label"
+                app:layout_constraintTop_toTopOf="@id/app_size_label" />
+
+            <TextView
+                android:id="@+id/modified_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Last Modified:"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/app_size_label" />
+
+            <TextView
+                android:id="@+id/modified_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@id/modified_label"
+                app:layout_constraintTop_toTopOf="@id/modified_label" />
+
+            <TextView
                 android:id="@+id/app_description"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="App description goes here."
-                android:textSize="@dimen/text_size_medium"
+                android:layout_marginTop="16dp"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/vertical_guideline_start"
-                app:layout_constraintTop_toBottomOf="@+id/download_button" />
+                app:layout_constraintTop_toBottomOf="@id/modified_label" />
 
-            <!-- Download Button -->
             <Button
                 android:id="@+id/download_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
                 android:text="Download"
-                app:layout_constraintBottom_toBottomOf="@+id/rating_icon"
-                app:layout_constraintEnd_toStartOf="@+id/vertical_guideline_end"
-                app:layout_constraintTop_toTopOf="@+id/rating_icon" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.cardview.widget.CardView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

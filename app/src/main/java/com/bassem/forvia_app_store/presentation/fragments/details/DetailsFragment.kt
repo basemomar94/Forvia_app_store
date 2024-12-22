@@ -10,6 +10,7 @@ import com.bassem.forvia_app_store.databinding.FragmentDetailsBinding
 import com.bassem.forvia_app_store.presentation.base.BaseFragment
 import com.bassem.forvia_app_store.presentation.models.AppsUi
 import com.bassem.forvia_app_store.presentation.utils.Constants.APP_DETAILS
+import com.bassem.forvia_app_store.presentation.utils.formatToLocalDate
 import com.bassem.forvia_app_store.presentation.utils.loadImage
 
 class DetailsFragment : BaseFragment<FragmentDetailsBinding>(), View.OnClickListener {
@@ -38,6 +39,10 @@ class DetailsFragment : BaseFragment<FragmentDetailsBinding>(), View.OnClickList
                 appNameText.text = name
                 ratingText.text = rating.toFloat().toString()
                 appThumbnail.loadImage(iconUrl)
+                versionValue.text = "$versionCode"
+                storeValue.text = storeName
+                modifiedValue.text = formatToLocalDate(modifiedAt)
+                appSizeValue.text = "$size"
             }
         }
 
