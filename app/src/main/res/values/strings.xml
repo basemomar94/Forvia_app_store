@@ -42,4 +42,12 @@
 
     <string name="notification_title10">🌍 Explore More!</string>
     <string name="notification_text10">Connect to a world of exciting apps now.</string>
+    <string name="size">Size:</string>
+    <string name="last_modified">Last Modified:</string>
+    <string name="downloads">Downloads:</string>
+    <string name="version">Version:</string>
+    <string name="rating_icon">rating icon</string>
+    <string name="store">Store:</string>
+    <string name="download">Download</string>
+    <string name="app_thumbnail">app thumbnail</string>
 </resources>
