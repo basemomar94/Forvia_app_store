@@ -9,7 +9,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bassem.forvia_app_store.R
-import com.bassem.forvia_app_store.data.models.ApiResult
 import com.bassem.forvia_app_store.databinding.FragmentHomeBinding
 import com.bassem.forvia_app_store.presentation.adapter.EditorChoiceAdapter
 import com.bassem.forvia_app_store.presentation.adapter.OnItemClickListener
@@ -20,6 +19,7 @@ import com.bassem.forvia_app_store.presentation.utils.Constants.APP_DETAILS
 import com.bassem.forvia_app_store.presentation.utils.getErrorMessage
 import com.bassem.forvia_app_store.presentation.utils.gone
 import com.bassem.forvia_app_store.presentation.utils.visible
+import com.bassem.forvia_app_store.presentation.viewmodels.AppsScreenState
 import com.bassem.forvia_app_store.presentation.viewmodels.HomeViewModel
 import com.bassem.forvia_app_store.utils.Logger
 import com.google.android.material.carousel.CarouselLayoutManager
@@ -46,39 +46,35 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnItemClickListener {
 
 
     private fun collectApps() = lifecycleScope.launch {
-        viewModel.appsList.collect { result ->
-            log.i("app list result is $result")
+        viewModel.appsScreenState.collect { state ->
+            log.i("app list state is $state")
 
-            when (result) {
-                is ApiResult.Success -> {
+            when (state) {
+                is AppsScreenState.Data -> {
                     withBinding {
                         errorMessage.gone()
                         progressBar.gone()
                     }
-                    val appsList = result.data as List<AppsUi>
+                    val appsList = state.apps
                     populateLocalApps(appsList)
                     populateEditorChoiceApps(appsList)
                 }
 
-                is ApiResult.Fail -> {
+                is AppsScreenState.Error -> {
                     withBinding {
                         progressBar.gone()
                         errorMessage.visible()
                         errorMessage.text =
-                            requireContext().getErrorMessage(result.errorTypes)
+                            requireContext().getErrorMessage(state.types)
                     }
 
                 }
 
-                is ApiResult.Loading -> {
+                is AppsScreenState.Loading -> {
                     withBinding {
                         errorMessage.gone()
                         progressBar.visible()
                     }
-                }
-
-                null -> {
-
                 }
             }
         }

@@ -19,10 +19,11 @@ fun View.visible() {
     visibility = View.VISIBLE
 }
 
-fun Context.getErrorMessage(errorType: ErrorTypes) = when (errorType) {
+fun Context.getErrorMessage(errorType: ErrorTypes?) = when (errorType) {
     is ErrorTypes.Generic -> errorType.message
         ?: getString(R.string.unexpected_error)
     ErrorTypes.IoException -> getString(R.string.net_work_error)
     ErrorTypes.JsonException -> getString(R.string.local_parsing_error)
     ErrorTypes.SqlException -> getString(R.string.remote_parsing_error)
+    null -> getString(R.string.unexpected_error)
 }
