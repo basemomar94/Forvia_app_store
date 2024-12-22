@@ -5,9 +5,8 @@ import com.bassem.forvia_app_store.presentation.models.AppsUi
 import javax.inject.Inject
 
 class AppDtoToUiModelMapper @Inject constructor() {
-    fun map(appDto: AppDetails): AppsUi {
+    private fun map(appDto: AppDetails): AppsUi {
         return AppsUi(
-            id = appDto.id,
             name = appDto.name,
             iconUrl = appDto.icon,
             rating = appDto.rating,
