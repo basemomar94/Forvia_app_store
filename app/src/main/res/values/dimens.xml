@@ -1,15 +1,13 @@
 <resources>
     <dimen name="default_fields_space">8dp</dimen>
-    <dimen name="icon_size_xlarge">42dp</dimen>
-    <dimen name="icon_size_xxlarge">80dp</dimen>
+    <dimen name="icon_size">24dp</dimen>
+    <dimen name="icon_size_xxlarge">64dp</dimen>
     <dimen name="default_text_width">80dp</dimen>
     <dimen name="item_width">150dp</dimen>
-    <dimen name="image_height">120dp</dimen>
-    <dimen name="item_height">220dp</dimen>
-    <dimen name="item_height_x">320dp</dimen>
+    <dimen name="image_height">100dp</dimen>
+    <dimen name="item_height_large">200dp</dimen>
+    <dimen name="item_height_small">170dp</dimen>
     <dimen name="text_size_medium">14sp</dimen>
     <dimen name="large_text_size">16sp</dimen>
     <dimen name="x_large_text_size">18sp</dimen>
-
-
 </resources>

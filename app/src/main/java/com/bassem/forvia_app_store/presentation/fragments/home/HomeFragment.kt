@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.bassem.forvia_app_store.R
 import com.bassem.forvia_app_store.databinding.FragmentHomeBinding
 import com.bassem.forvia_app_store.presentation.adapter.EditorChoiceAdapter
@@ -85,8 +85,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnItemClickListener {
         withBinding {
             localTopAppsTitle.visible()
             localTopAppsRv.adapter = adapter
-            localTopAppsRv.layoutManager =
-                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+            val gridLayoutManager = GridLayoutManager(requireContext(), 2, GridLayoutManager.HORIZONTAL, false)
+            localTopAppsRv.layoutManager = gridLayoutManager
             localTopAppsRv.setHasFixedSize(true)
 
         }
@@ -103,7 +103,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnItemClickListener {
             editorsChoiceRv.adapter = adapter
             editorsChoiceRv.layoutManager =
                 carouselLayoutManager
-
             localTopAppsRv.setHasFixedSize(true)
 
         }
