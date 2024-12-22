@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/editors_choice_title"
         android:text="@string/editors_choice"
         style="@style/label_text"
@@ -24,6 +25,7 @@
         android:layout_margin="@dimen/default_fields_space" />
 
     <TextView
+        android:visibility="gone"
         android:id="@+id/local_top_apps_title"
         android:text="@string/local_top_apps"
         style="@style/label_text"
@@ -45,5 +47,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/local_top_apps_title"
         tools:listitem="@layout/item_small_app" />
+
+    <ProgressBar
+        android:visibility="visible"
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="@dimen/icon_size_xxlarge"
+        android:layout_height="@dimen/icon_size_xxlarge"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/error_message"
+        android:layout_width="@dimen/icon_size_xxlarge"
+        android:layout_height="@dimen/icon_size_xxlarge"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

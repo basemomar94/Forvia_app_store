@@ -17,6 +17,9 @@ import com.bassem.forvia_app_store.presentation.adapter.SmallItemsAdapter
 import com.bassem.forvia_app_store.presentation.base.BaseFragment
 import com.bassem.forvia_app_store.presentation.models.AppsUi
 import com.bassem.forvia_app_store.presentation.utils.Constants.APP_DETAILS
+import com.bassem.forvia_app_store.presentation.utils.getErrorMessage
+import com.bassem.forvia_app_store.presentation.utils.gone
+import com.bassem.forvia_app_store.presentation.utils.visible
 import com.bassem.forvia_app_store.presentation.viewmodels.HomeViewModel
 import com.bassem.forvia_app_store.utils.Logger
 import com.google.android.material.carousel.CarouselLayoutManager
@@ -37,26 +40,39 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnItemClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         collectApps()
     }
 
 
     private fun collectApps() = lifecycleScope.launch {
-        viewModel.appsList.collect { apps ->
+        viewModel.appsList.collect { result ->
+            log.i("app list result is $result")
 
-            when (apps) {
+            when (result) {
                 is ApiResult.Success -> {
-                    val appsList = apps.data as List<AppsUi>
+                    withBinding {
+                        progressBar.gone()
+                    }
+                    val appsList = result.data as List<AppsUi>
                     populateLocalApps(appsList)
                     populateEditorChoiceApps(appsList)
                 }
 
                 is ApiResult.Fail -> {
+                    withBinding {
+                        progressBar.gone()
+                        errorMessage.visible()
+                        errorMessage.text =
+                            requireContext().getErrorMessage(result.errorTypes)
+                    }
 
                 }
 
                 is ApiResult.Loading -> {
-
+                    withBinding {
+                        progressBar.visible()
+                    }
                 }
 
                 null -> {
@@ -69,6 +85,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnItemClickListener {
     private fun populateLocalApps(list: List<AppsUi>) {
         val adapter = SmallItemsAdapter(list, this)
         withBinding {
+            localTopAppsTitle.visible()
             localTopAppsRv.adapter = adapter
             localTopAppsRv.layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
@@ -84,6 +101,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(), OnItemClickListener {
         carouselLayoutManager.setCarouselAlignment(CarouselLayoutManager.ALIGNMENT_CENTER)
 
         withBinding {
+            editorsChoiceTitle.visible()
             editorsChoiceRv.adapter = adapter
             editorsChoiceRv.layoutManager =
                 carouselLayoutManager

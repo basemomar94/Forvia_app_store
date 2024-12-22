@@ -3,6 +3,10 @@
     <string name="apps">Apps</string>
     <string name="editors_choice">Editors choice</string>
     <string name="local_top_apps">Local top apps</string>
+    <string name="net_work_error">No internet connection</string>
+    <string name="local_parsing_error">Local Parsing Error</string>
+    <string name="remote_parsing_error">Remote Parsing Error</string>
+    <string name="unexpected_error">Unexpected Error</string>
     <string name="default_notification_channel_id">chanel_1</string>
     <string name="default_notification_channel_name">marketing_channel</string>
     <string name="news_app_alert">New apps Alert</string>
