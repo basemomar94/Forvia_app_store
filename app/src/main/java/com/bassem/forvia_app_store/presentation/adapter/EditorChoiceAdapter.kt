@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bassem.forvia_app_store.databinding.ItemLargeAppBinding
 import com.bassem.forvia_app_store.presentation.models.AppsUi
 import com.bassem.forvia_app_store.presentation.utils.loadImage
-import com.bumptech.glide.Glide
 
 class EditorChoiceAdapter(
     private val items: List<AppsUi>,

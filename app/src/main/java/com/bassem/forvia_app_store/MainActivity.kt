@@ -2,11 +2,8 @@ package com.bassem.forvia_app_store
 
 import android.os.Build
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.bassem.forvia_app_store.databinding.ActivityMainBinding
 import com.bassem.forvia_app_store.utils.Logger
 import com.bassem.forvia_app_store.utils.createNotificationChannel

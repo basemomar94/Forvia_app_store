@@ -13,11 +13,6 @@ import java.sql.SQLException
  *
  * @param e The exception to be processed.
  * @return An [ErrorTypes] instance representing the mapped error type.
- *
- * @see IOException
- * @see SQLException
- * @see JsonParseException
- * @see ErrorTypes
  */
 fun getExceptionMessage(e: Throwable) = when (e) {
     is IOException -> ErrorTypes.IoException
