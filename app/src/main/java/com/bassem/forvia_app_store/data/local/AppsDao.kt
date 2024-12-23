@@ -3,9 +3,8 @@ package com.bassem.forvia_app_store.data.local
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Upsert
-import com.bassem.forvia_app_store.data.models.AppDetails
 import com.bassem.forvia_app_store.presentation.models.AppsUi
-import kotlinx.coroutines.flow.Flow
+
 @Dao
 interface AppsDao {
    @Upsert

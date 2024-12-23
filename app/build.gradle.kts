@@ -29,28 +29,32 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
     kotlinOptions {
         jvmTarget = "11"
     }
+
     buildFeatures {
         viewBinding = true
     }
-    packagingOptions {
-        resources.excludes += "/META-INF/AL2.0"
-        resources.excludes += "/META-INF/LGPL2.1"
-    }
+
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+            merges += "META-INF/LICENSE.md"
+            merges += "META-INF/LICENSE-notice.md"
+        }
     tasks.withType<Test> {
         useJUnitPlatform()
     }
-
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -82,13 +86,13 @@ dependencies {
     testImplementation(libs.junit)
     implementation(libs.glide)
     testImplementation(libs.kotlinx.coroutines.test)
-    testImplementation (libs.mockk)
+    testImplementation(libs.mockk)
     androidTestImplementation (libs.mockk.android)
-    testImplementation (libs.turbine)
+    testImplementation(libs.turbine)
     androidTestImplementation(libs.kotlinx.coroutines.test)
     implementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.junit.jupiter.params)
     testImplementation(libs.androidx.core.testing.v210)
 
 
-}
+}}
