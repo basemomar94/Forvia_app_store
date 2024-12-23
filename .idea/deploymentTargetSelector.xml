@@ -8,9 +8,6 @@
       <SelectionState runConfigName="AppDaoTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="insertAndReadMultiApp()">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
       <SelectionState runConfigName="deleteAllData()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
