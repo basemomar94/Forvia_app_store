@@ -4,6 +4,14 @@ import com.bassem.forvia_app_store.data.models.AppDetails
 import com.bassem.forvia_app_store.presentation.models.AppsUi
 import javax.inject.Inject
 
+/**
+ * Mapper class to convert data transfer objects (DTOs) of apps into UI models.
+ *
+ * This class is responsible for mapping `AppDetails` (DTO) to `AppsUi` (UI model) and provides functionality
+ * to map a single DTO or a list of DTOs.
+ *
+ * @constructor Creates an instance of [AppDtoToUiModelMapper].
+ */
 class AppDtoToUiModelMapper @Inject constructor() {
     private fun map(appDto: AppDetails): AppsUi {
         return AppsUi(
