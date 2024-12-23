@@ -21,7 +21,7 @@ object UseCaseModule {
         appsRepo: AppsRepo,
         mapper: AppDtoToUiModelMapper,
         dao: AppsDao,
-        dispatcher: CoroutineDispatcher
+        @IoDispatcher dispatcher: CoroutineDispatcher
     ) =
-        FetchAppsUseCase(appsRepo, mapper, dao, ioDispatcher = @IoDispatcher dispatcher)
+        FetchAppsUseCase(appsRepo, mapper, dao, ioDispatcher = dispatcher)
 }
