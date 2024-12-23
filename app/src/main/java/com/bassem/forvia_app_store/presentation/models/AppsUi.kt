@@ -5,6 +5,11 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
+/**
+ * Represents the UI model for an app, used for displaying app details in the UI and storing them in the database.
+ *
+ * This class is mapped to a Room database table named "apps_table"
+ */
 @Entity(tableName = "apps_table")
 @Parcelize
 data class AppsUi(
