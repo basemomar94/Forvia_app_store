@@ -49,50 +49,51 @@ android {
             merges += "META-INF/LICENSE.md"
             merges += "META-INF/LICENSE-notice.md"
         }
-    tasks.withType<Test> {
-        useJUnitPlatform()
+        tasks.withType<Test> {
+            useJUnitPlatform()
+        }
+    }
+
+    dependencies {
+        implementation(libs.androidx.core.ktx)
+        implementation(libs.androidx.appcompat)
+        implementation(libs.material)
+        implementation(libs.androidx.activity)
+        implementation(libs.androidx.constraintlayout)
+        implementation(libs.androidx.navigation.fragment.ktx)
+        implementation(libs.androidx.navigation.ui.ktx)
+        testImplementation(libs.junit)
+        testImplementation(libs.junit.jupiter)
+        androidTestImplementation(libs.androidx.junit)
+        androidTestImplementation(libs.androidx.espresso.core)
+
+        ksp(libs.androidx.room.compiler)
+        ksp(libs.hilt.android.compiler)
+        implementation(libs.androidx.core.ktx)
+        implementation(libs.androidx.lifecycle.viewmodel.ktx)
+        implementation(libs.androidx.room.ktx)
+        implementation(libs.androidx.work.runtime.ktx)
+        implementation(libs.material)
+        implementation(libs.gson)
+        implementation(libs.okhttp3.logging.interceptor)
+        implementation(libs.retrofit2.converter.gson)
+        implementation(libs.retrofit2)
+        implementation(libs.kotlinx.coroutines.android)
+        implementation(libs.kotlinx.coroutines.core)
+        implementation(libs.hilt.android)
+        implementation(libs.kotlinx.coroutines.android)
+        implementation(libs.kotlinx.coroutines.core)
+        testImplementation(libs.junit)
+        implementation(libs.glide)
+        testImplementation(libs.kotlinx.coroutines.test)
+        testImplementation(libs.mockk)
+        androidTestImplementation(libs.mockk.android)
+        testImplementation(libs.turbine)
+        androidTestImplementation(libs.kotlinx.coroutines.test)
+        implementation(libs.kotlinx.coroutines.test)
+        testImplementation(libs.junit.jupiter.params)
+        testImplementation(libs.androidx.core.testing.v210)
+
+
     }
 }
-
-dependencies {
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    implementation(libs.androidx.activity)
-    implementation(libs.androidx.constraintlayout)
-    implementation(libs.androidx.navigation.fragment.ktx)
-    implementation(libs.androidx.navigation.ui.ktx)
-    testImplementation(libs.junit)
-    testImplementation(libs.junit.jupiter)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-
-    ksp(libs.androidx.room.compiler)
-    ksp(libs.hilt.android.compiler)
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.androidx.room.ktx)
-    implementation(libs.androidx.work.runtime.ktx)
-    implementation(libs.material)
-    implementation(libs.gson)
-    implementation(libs.okhttp3.logging.interceptor)
-    implementation(libs.retrofit2.converter.gson)
-    implementation(libs.retrofit2)
-    implementation(libs.kotlinx.coroutines.android)
-    implementation(libs.kotlinx.coroutines.core)
-    implementation(libs.hilt.android)
-    implementation(libs.kotlinx.coroutines.android)
-    implementation(libs.kotlinx.coroutines.core)
-    testImplementation(libs.junit)
-    implementation(libs.glide)
-    testImplementation(libs.kotlinx.coroutines.test)
-    testImplementation(libs.mockk)
-    androidTestImplementation (libs.mockk.android)
-    testImplementation(libs.turbine)
-    androidTestImplementation(libs.kotlinx.coroutines.test)
-    implementation(libs.kotlinx.coroutines.test)
-    testImplementation(libs.junit.jupiter.params)
-    testImplementation(libs.androidx.core.testing.v210)
-
-
-}}
