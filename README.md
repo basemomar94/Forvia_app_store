@@ -36,3 +36,9 @@ The app adheres to the MVVM (Model-View-ViewModel) architecture pattern, promoti
 ### Possible Improvement
 
 - **UI Tests**: Verify the behavior and interaction of UI components using Espresso.
+
+  ### Download
+
+You can download the latest version of the app from the link below:
+
+[Download Forvia App Store APK]([https://example.com/path-to-your-apk](https://github.com/basemomar94/Forvia_app_store/blob/main/app/src/main/java/com/apk/app-debug.apk)) 
