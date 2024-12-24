@@ -41,4 +41,4 @@ The app adheres to the MVVM (Model-View-ViewModel) architecture pattern, promoti
 
 You can download the latest version of the app from the link below:
 
-[Download Forvia App Store APK]([https://example.com/path-to-your-apk](https://github.com/basemomar94/Forvia_app_store/blob/main/app/src/main/java/com/apk/app-debug.apk)) 
+[Download Forvia App Store APK](https://github.com/basemomar94/Forvia_app_store/releases/tag/v.01)
